@@ -1,0 +1,64 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
+/* Simple utility classes similar to Tailwind */
+.pr-1 {
+  padding-right: 1rem;
+}
+.mt-n1 {
+  margin-top: calc(-1 * var(--pico-block-spacing-vertical));
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+/* Base styles for project cards */
+article img {
+  width: calc(100% + 2 * var(--pico-block-spacing-horizontal));
+  margin-left: calc(-1 * var(--pico-block-spacing-horizontal));
+  margin-right: calc(-1 * var(--pico-block-spacing-horizontal));
+  max-width: none;
+  object-fit: cover;
+  border-radius: var(--pico-border-radius) var(--pico-border-radius) 0 0;
+  height: 200px;
+}
+
+/* Add the negative top margin and bottom margin to all images */
+article img {
+  margin-top: calc(-1 * var(--pico-block-spacing-vertical));
+  margin-bottom: 1rem;
+}
+
+.neog-footer {
+  text-align: center;
+  color: var(--muted, #666);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: start; /* 🔥 ensures all cards start at the same top level */
+}
+
+.projects-grid article {
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: var(--pico-card-background-color);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  height: 100%; /* 🔥 makes all cards stretch evenly */
+  display: flex;
+  flex-direction: column; /* keeps footer at bottom */
+  justify-content: space-between;
+}
+

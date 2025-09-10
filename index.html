@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mangalapalli Mourya | MERN Stack Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Mourya, a beginner MERN stack developer"
+    />
+    <!-- PicoCSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <style>
+      /* Custom CSS to ensure 3 projects per row */
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      
+      @media (max-width: 992px) {
+        .projects-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .projects-container {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      .project-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      
+      .project-card footer {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="container">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#blog">Connect</a></li>
+      </ul>
+      <ul>
+        <li>
+          <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="container" id="about">
+      <hgroup >
+        <h1>Mangalapalli Mourya</h1>
+        <h2>MERN Stack Developer</h2>
+      </hgroup>
+      <hr />
+      <p>
+        Recent graduate passionate about building web applications with modern
+        technologies such as React JS,Vanilla JS,Express,Node JS and MongoDB to
+        create full-stack applications.
+      </p>
+      <p>
+        <a href="#connect" role="button">Contact Me</a>
+        <a href="#about" role="button" class="secondary">Resume</a>
+      </p>
+    </header>
+    <main class="container">
+      <section id="projects">
+        <hgroup>
+          <h2>My Projects</h2>
+          <h3>What I've been working on lately</h3>
+        </hgroup>
+        <hr />
+      </section>
+      <div class="projects-container">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <figure>
+            <img
+              src="images/shopping.png"
+              alt="shopping site Project"
+            />
+          </figure>
+          <hgroup>
+            <h3>My ShoppingSite</h3>
+            <p>
+              A full-stack e-commerce platform where users can browse products, manage shopping carts, create wishlists, and complete purchases.
+            </p>
+          </hgroup>
+          <footer>
+            <details>
+              <summary>App Inculded</summary>
+              <p>React JS,React Router,Node.js,Express,MongoDB</p>
+            </details>
+            <div>
+              <a href="https://major-project1-front-end.vercel.app/" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/MajorProject1-FrontEnd" class="outline"> ⚙️ Code</a>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <figure>
+            <img
+              src="images/crm.png"
+              alt="anvaya-crm Project"
+            />
+          </figure>
+          <hgroup>
+            <h3>anvaya-crm</h3>
+            <p>
+              A comprehensive Customer Relationship Management system designed to streamline lead management, sales tracking, and team collaboration.
+            </p>
+          </hgroup>
+          <footer>
+            <details>
+              <summary>App Inculded</summary>
+              <p>React JS,React Router,Node.js,Express,MongoDB</p>
+            </details>
+            <div>
+              <a href="https://major-project2-front-end.vercel.app/" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/MajorProject2-FrontEnd" class="outline"> ⚙️ Code</a>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <figure>
+            <img
+              src="https://picsum.photos/id/180/800/400"
+              alt="Marketing Toolbox Project"
+            />
+          </figure>
+          <hgroup>
+            <h3>SmartMarketer</h3>
+            <p>
+              A Comprehensive toolkit for marketers featuring campaign tracking, Social media scheduling and messaging tools.
+            </p>
+          </hgroup>
+          <footer>
+            <details>
+              <summary>App Inculded</summary>
+              <p>Twitter Link Generator, WAMI Link Generator and Github URL Generator</p>
+            </details>
+            <div>
+              <a href="https://k6z84z.csb.app/index.html" class="secondary"> 🖥️ Demo</a>
+              <a href="https://codesandbox.io/p/sandbox/ng3-assignment-marketingtoolbox-starter-forked-k6z84z" class="outline"> ⚙️ Code</a>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <figure>
+            <img
+              src="https://picsum.photos/id/841/800/400"
+              alt="Fitness Toolbox Project"
+            />
+          </figure>
+          <hgroup>
+            <h3>FitTrack</h3>
+            <p>
+              All in one fitness tracker application for workout planning,
+              tracking calories, steps and water intake.
+            </p>
+          </hgroup>
+          <footer>
+            <details>
+              <summary>App Inculded</summary>
+              <p>Workout Planner,Nutrition Tracker, Goal Setting, Water Intake</p>
+            </details>
+            <div>
+              <a href="https://tlq3p3.csb.app/bmi.html" class="secondary"> 🖥️ Demo</a>
+              <a href="https://codesandbox.io/p/devbox/ng3cw-forked-tlq3p3?workspaceId=ws_ESsWq2VFuRPH7bbMN3RrLo" class="outline"> ⚙️ Code</a>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card">
+          <figure>
+            <img
+              src="https://picsum.photos/id/3/800/400"
+              alt="Finance Toolkit Project"
+            />
+          </figure>
+          <hgroup>
+            <h3>Friendly Finance</h3>
+            <p>
+              Personal Finance management with expense traking,budget planning and investment suggestions.
+            </p>
+          </hgroup>
+          <footer>
+            <details>
+              <summary>App Inculded</summary>
+              <p>Expense Traker, budget Planner, Saving Goals</p>
+            </details>
+            <div>
+              <a href="https://vg9cc7.csb.app/index.html" class="secondary"> 🖥️ Demo</a>
+              <a href="https://codesandbox.io/p/devbox/starter-ng2-2-forked-vg9cc7?workspaceId=ws_ESsWq2VFuRPH7bbMN3RrLo" class="outline"> ⚙️ Code</a>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card">
+          <figure>
+            <img
+              src="https://picsum.photos/id/26/800/400"
+              alt="TripWise toolkit Project"
+            />
+          </figure>
+          <hgroup>
+            <h3>TripWise</h3>
+            <p>
+              A Trip planner application for planning bugets that allows users to discover, explore and plan trips within their budget.
+            </p>
+          </hgroup>
+          <footer>
+            <details>
+              <summary>App Inculded</summary>
+              <p>Fuel Cost calculator,Itinerary Cost calculator,Average Speed Estimator and Travel Time Estimator</p>
+            </details>
+            <div>
+              <a href="https://4z83p6.csb.app/index.html" class="secondary"> 🖥️ Demo</a>
+              <a href="https://codesandbox.io/p/devbox/ng3cw-forked-4z83p6?workspaceId=ws_ESsWq2VFuRPH7bbMN3RrLo" class="outline"> ⚙️ Code</a>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Project 7 -->
+        <article class="project-card">
+          <figure>
+            <img
+              src="https://picsum.photos/id/160/800/400"
+              alt="Gif Project"
+            />
+          </figure>
+          <hgroup>
+            <h3>GIFPal</h3>
+            <p>
+              A Pinterest-like applicationfor GIFs that allows to discover,save and organize GIFs into customized collections 
+            </p>
+          </hgroup>
+          <footer>
+            <details>
+              <summary>App Inculded</summary>
+              <p>Gif Explorer,Collection manager, Add new Gifs, Explore Top rated Gifs and Explore most liked Gifs.</p>
+            </details>
+            <div>
+              <a href="#" class="secondary"> 🖥️ Demo</a>
+              <a href="#" class="outline"> ⚙️ Code</a>
+            </div>
+          </footer>
+        </article>
+
+        <!-- Project 8 -->
+        <article class="project-card">
+          <figure>
+            <img
+              src="https://picsum.photos/id/841/800/400"
+              alt="Portfolio Project"
+            />
+          </figure>
+          <hgroup>
+            <h3>Personal Project</h3>
+            <p>
+             A responsive developer Portfolio built with HTML ,CSS and JavaScript using PicoCSS for clean, semantic design with minimal custom styles.
+            </p>
+          </hgroup>
+          <footer>
+            <details>
+              <summary>App Inculded</summary>
+              <p>
+                Project Shocase, Skilles Display, Contact Details and Theme Swither.
+              </p>
+            </details>
+            <div>
+              <a href="https://9jrg88.csb.app/" class="secondary"> 🖥️ Demo</a>
+              <a href="https://codesandbox.io/p/devbox/portfolio-starter-forked-9jrg88" class="outline"> ⚙️ Code</a>
+            </div>
+          </footer>
+        </article>
+      </div>
+      
+      <section id="skills" class="container">
+        <hgroup>
+          <h2>Technologies</h2>
+          <h3>Skills I'am currently learning and practicing</h3>
+        </hgroup>
+        <hr />
+        <div class="grid">
+          <article>
+            <header>
+            <h3>Frontend</h3>
+            </header>
+            <ul>
+            <li>HTML5 & CSS3</li>
+            <li>JavaScript</li>
+            <li>React JS</li>
+            <li>Bootstrap and Pico CSS</li>
+            </ul>
+        </article>
+        <article>
+          <header>
+          <h3>Backend</h3>
+          </header>
+          <ul>
+          <li>Node JS</li>
+          <li>Express JS</li>
+          <li>Mongo DB</li>
+          <li>Restful APIs</li>
+          </ul>
+      </article>
+      <article>
+        <header>
+        <h3>Tools</h3>
+        </header>
+        <ul>
+        <li>Git & Github</li>
+        <li>VS Code</li>
+        <li>npm</li>
+        <li>postman</li>
+        </ul>
+    </article>
+        </div>
+      </section>
+      <section id="blog" class="container">
+        <hgroup>
+          <h2>My Journey</h2>
+          <h3>How I built this portfolio and what I learned</h3>
+        </hgroup>
+        <hr />
+        <article>
+          <p>
+            I created this portfolio as part of my learning journey in becoming a MERN Stack Developer. Starting with basic HTML and CSS, I explored semantic UI frameworks like PicoCSS to create clean and accessible layouts. The project helped me understand responsive design, JavaScript interactivity (like the dark/light mode toggle), and how to organize and showcase my work.
+          </p>
+          <p>
+            One of the most rewarding parts was learning how to break complex projects into smaller micro tools, such as the Fitness Toolbox or Marketing Utilities. Each one pushed me further in my understanding of frontend-backend communication, component-based design, and Git version control.
+          </p>
+          <p>
+            <a href="#connect" role="button">Want to know more? Let's talk!</a>
+          </p>
+        </article>
+      </section>
+      <section id="connect">
+        <hgroup>
+          <h2>Connect</h2>
+          <h3>Want to talk anything tech? I am just a ping away!</h3>
+        </hgroup>
+        <hr />
+        <div class="grid">
+          <article>
+            <header>
+            <h3>Social</h3>
+            </header>
+            <p href="mailto:magalapallimourya@gmail.com">
+            <a>magalapallimourya@gmail.com</a>
+            </p>
+            </article>
+            <article>
+              <header>
+              <h3>Social</h3>
+              </header>
+              <p href="mailto:magalapallimourya@gmail.com">
+              <a href="https://github.com/mourya7603">Github</a>.
+              <a href="https://www.linkedin.com/in/mangalapalli-mourya-02b660233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIN</a>.
+              </p>
+              </article>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="container neog-footer">
+      <small>
+        © 2025 Mourya • Built with
+        <a href="https://picocss.com">PicoCSS</a> | Learning full stack
+        development at
+        <a href="https://neog.camp">neog.camp</a>
+      </small>
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+      const toggleBtn = document.getElementById("theme-toggle");
+      const html = document.documentElement;
+
+      toggleBtn.addEventListener("click", () => {
+        const currentTheme = html.getAttribute("data-theme");
+        if (currentTheme === "light") {
+          html.setAttribute("data-theme", "dark");
+          toggleBtn.textContent = "☀️";
+        } else {
+          html.setAttribute("data-theme", "light");
+          toggleBtn.textContent = "🌙";
+        }
+      });
+    </script>
+  </body>
+</html>
