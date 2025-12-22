@@ -13,80 +13,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
-    <style>
-      /* Custom CSS to ensure 3 projects per row */
-      .projects-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-      }
-      
-      @media (max-width: 992px) {
-        .projects-container {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      
-      @media (max-width: 576px) {
-        .projects-container {
-          grid-template-columns: 1fr;
-        }
-      }
-      
-      .project-card {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-      
-      .project-card footer {
-        margin-top: auto;
-      }
-      
-      /* Improved navigation */
-      nav {
-        position: sticky;
-        top: 0;
-        background-color: var(--pico-background-color);
-        z-index: 100;
-        padding: 1rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-      
-      nav ul {
-        margin-bottom: 0;
-      }
-      
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
-      }
-      
-      /* Active navigation link styling */
-      nav a.active {
-        font-weight: bold;
-        text-decoration: underline;
-      }
-      
-      /* Section spacing */
-      section {
-        padding: 3rem 0;
-      }
-      
-      /* Improved button styling */
-      .resume-button {
-        margin-right: 0.5rem;
-      }
-      
-      /* Social links styling */
-      .social-links a {
-        margin-right: 1rem;
-      }
-    </style>
+    
+    <link rel="stylesheet" href="styles.css" />
+    
   </head>
   <body>
     <!-- Navigation -->
-    <nav class="container">
+    <nav class="full-nav">
+      <div class="container">
       <ul>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
@@ -98,6 +32,7 @@
           <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
         </li>
       </ul>
+      </div>
     </nav>
 
     <!-- Header -->
@@ -114,18 +49,20 @@
       </p>
       <p>
         <a href="#connect" role="button">Contact Me</a>
-        <a href="https://drive.google.com/file/d/1zT75cowWLrjJhaKYOcUgpimhxncbR86E/view?usp=drive_link" role="button" class="secondary">Resume</a>
+        <a href="https://drive.google.com/file/d/1zT75cowWLrjJhaKYOcUgpimhxncbR86E/view?usp=drive_link" target="_blank" rel="noopener noreferrer" role="button" class="secondary">Resume</a>
       </p>
     </header>
-    <main class="container">
+    <main>
       <section id="projects">
+        <div class="container">
         <hgroup>
           <h2>My Projects</h2>
           <h3>What I've been working on lately</h3>
         </hgroup>
         <hr />
+        </div>
       </section>
-      <div class="projects-container">
+      <div class="container projects-container">
         <!-- Project 1 -->
         <article class="project-card">
           <figure>
@@ -146,8 +83,8 @@
               <p>React JS,React Router,Node.js,Express,MongoDB</p>
             </details>
             <div>
-              <a href="https://major-project1-front-end.vercel.app/" class="secondary"> 🖥️ Demo</a>
-              <a href="https://github.com/Mourya7603/MajorProject1-FrontEnd" class="outline"> ⚙️ Code</a>
+              <a href="https://major-project1-front-end.vercel.app/" target="_blank" rel="noopener noreferrer" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/MajorProject1-FrontEnd" target="_blank" rel="noopener noreferrer" class="outline"> ⚙️ Code</a>
             </div>
           </footer>
         </article>
@@ -172,8 +109,8 @@
               <p>React JS,React Router,Node.js,Express,MongoDB</p>
             </details>
             <div>
-              <a href="https://major-project2-front-end.vercel.app/" class="secondary"> 🖥️ Demo</a>
-              <a href="https://github.com/Mourya7603/MajorProject2-FrontEnd" class="outline"> ⚙️ Code</a>
+              <a href="https://major-project2-front-end.vercel.app/" target="_blank" rel="noopener noreferrer" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/MajorProject2-FrontEnd" target="_blank" rel="noopener noreferrer" class="outline"> ⚙️ Code</a>
             </div>
           </footer>
         </article>
@@ -198,8 +135,8 @@
               <p>React JS,React Router,Node.js,Express,MongoDB</p>
             </details>
             <div>
-              <a href="https://major-project3-front-end.vercel.app/" class="secondary"> 🖥️ Demo</a>
-              <a href="https://github.com/Mourya7603/MajorProject3-FrontEnd" class="outline"> ⚙️ Code</a>
+              <a href="https://major-project3-front-end.vercel.app/" target="_blank" rel="noopener noreferrer" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/MajorProject3-FrontEnd" target="_blank" rel="noopener noreferrer" class="outline"> ⚙️ Code</a>
             </div>
           </footer>
         </article>
@@ -224,8 +161,8 @@
               <p>React JS,React Router,Node.js,Express,MongoDB</p>
             </details>
             <div>
-              <a href="https://job-post-frontend-phi.vercel.app/" class="secondary"> 🖥️ Demo</a>
-              <a href="https://github.com/Mourya7603/JOB_POST_FRONTEND" class="outline"> ⚙️ Code</a>
+              <a href="https://job-post-frontend-phi.vercel.app/" target="_blank" rel="noopener noreferrer" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/JOB_POST_FRONTEND" target="_blank" rel="noopener noreferrer" class="outline"> ⚙️ Code</a>
             </div>
           </footer>
         </article>
@@ -250,8 +187,8 @@
               <p>React JS,React Router,Node.js,Express,MongoDB</p>
             </details>
             <div>
-              <a href="https://kavios-pix-frontend.vercel.app/" class="secondary"> 🖥️ Demo</a>
-              <a href="https://github.com/Mourya7603/KaviosPix_Frontend" class="outline"> ⚙️ Code</a>
+              <a href="https://kavios-pix-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/KaviosPix_Frontend" target="_blank" rel="noopener noreferrer" class="outline"> ⚙️ Code</a>
             </div>
           </footer>
         </article>
@@ -276,8 +213,8 @@
               <p>React JS,React Router,Node.js,Express,MongoDB</p>
             </details>
             <div>
-              <a href="https://chat-app-frontend-eta-jade.vercel.app/" class="secondary"> 🖥️ Demo</a>
-              <a href="https://github.com/Mourya7603/chatApp_frontend" class="outline"> ⚙️ Code</a>
+              <a href="https://chat-app-frontend-eta-jade.vercel.app/" target="_blank" rel="noopener noreferrer" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/chatApp_frontend" target="_blank" rel="noopener noreferrer" class="outline"> ⚙️ Code</a>
             </div>
           </footer>
         </article>
@@ -286,24 +223,24 @@
         <article class="project-card">
           <figure>
             <img
-              src="https://picsum.photos/id/160/800/400"
-              alt="Gif Project"
+              src="images/AI.png"
+              alt="AI Project"
             />
           </figure>
           <hgroup>
-            <h3>GIFPal</h3>
+            <h3>AI Calling Platform</h3>
             <p>
-              A Pinterest-like applicationfor GIFs that allows to discover,save and organize GIFs into customized collections 
+              AI-powered platform that helps users prepare for interviews through smart coaching and skill development. The system generates personalized technical questions using Gemini AI, provides instant feedback on user responses, and includes natural language tools for movie discovery and HR query management.
             </p>
           </hgroup>
           <footer>
             <details>
               <summary>App Inculded</summary>
-              <p>Gif Explorer,Collection manager, Add new Gifs, Explore Top rated Gifs and Explore most liked Gifs.</p>
+              <p>React JS,React Router,Node.js,Express,OpenAI Router</p>
             </details>
             <div>
-              <a href="#" class="secondary"> 🖥️ Demo</a>
-              <a href="#" class="outline"> ⚙️ Code</a>
+              <a href="https://ai-frontend-peach-five.vercel.app/" target="_blank" rel="noopener noreferrer" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/AI_FRONTEND" target="_blank" rel="noopener noreferrer" class="outline"> ⚙️ Code</a>
             </div>
           </footer>
         </article>
@@ -330,8 +267,8 @@
               </p>
             </details>
             <div>
-              <a href="https://portfolio-ten-orcin-33.vercel.app/" class="secondary"> 🖥️ Demo</a>
-              <a href="https://github.com/Mourya7603/Portfolio" class="outline"> ⚙️ Code</a>
+              <a href="https://portfolio-ten-orcin-33.vercel.app/" target="_blank" rel="noopener noreferrer" class="secondary"> 🖥️ Demo</a>
+              <a href="https://github.com/Mourya7603/Portfolio" target="_blank" rel="noopener noreferrer" class="outline"> ⚙️ Code</a>
             </div>
           </footer>
         </article>

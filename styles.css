@@ -1,64 +1,575 @@
-html,
-body {
+/* ============================================
+   GLOBAL STYLES & UTILITIES
+============================================ */
+html {
+  scroll-behavior: smooth;
   height: 100%;
 }
+
 body {
+  min-height: 100%;
   display: flex;
   flex-direction: column;
 }
+
 main {
   flex: 1;
 }
 
-/* Simple utility classes similar to Tailwind */
-.pr-1 {
-  padding-right: 1rem;
-}
-.mt-n1 {
-  margin-top: calc(-1 * var(--pico-block-spacing-vertical));
-}
-.mb-1 {
-  margin-bottom: 1rem;
+/* ============================================
+   NAVIGATION
+============================================ */
+.full-nav {
+  width: 100%;
+  position: sticky !important;
+  top: 0;
+  z-index: 9999;
+  background: var(--pico-background-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  transition: background-color 0.3s ease;
 }
 
-/* Base styles for project cards */
-article img {
-  width: calc(100% + 2 * var(--pico-block-spacing-horizontal));
-  margin-left: calc(-1 * var(--pico-block-spacing-horizontal));
-  margin-right: calc(-1 * var(--pico-block-spacing-horizontal));
-  max-width: none;
+.full-nav > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Navigation links styling */
+.full-nav a {
+  padding: 0.5rem 1rem;
+  border-radius: var(--pico-border-radius);
+  transition: all 0.2s ease;
+  color: var(--pico-color);
+}
+
+.full-nav a:hover {
+  background-color: var(--pico-primary-background);
+  color: var(--pico-primary-color);
+  transform: translateY(-2px);
+}
+
+/* Active navigation link */
+.full-nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: var(--pico-primary-background);
+  color: var(--pico-primary-color);
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+/* ============================================
+   RESPONSIVE NAVIGATION
+============================================ */
+@media (max-width: 768px) {
+  .full-nav > .container {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .full-nav ul {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .full-nav ul li {
+    margin: 0;
+  }
+  
+  .full-nav a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   HEADER SECTION
+============================================ */
+header#about {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(135deg, #ebf0f2 0%, var(--pico-background-color) 100%);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--pico-primary), var(--pico-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+header h2 {
+  color: var(--pico-muted-color);
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   PROJECTS SECTION
+============================================ */
+#projects {
+  background-color: var(--pico-card-background-color);
+  padding: 4rem 0 2rem;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  overflow: hidden;
+  background: var(--pico-card-background-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--pico-primary);
+}
+
+/* Project images */
+.project-card img {
+  width: 100%;
+  height: 200px;
   object-fit: cover;
   border-radius: var(--pico-border-radius) var(--pico-border-radius) 0 0;
-  height: 200px;
+  transition: transform 0.3s ease;
 }
 
-/* Add the negative top margin and bottom margin to all images */
-article img {
-  margin-top: calc(-1 * var(--pico-block-spacing-vertical));
+.project-card:hover img {
+  transform: scale(1.03);
+}
+
+.project-card figure {
+  margin: 0;
+  overflow: hidden;
+}
+
+.project-card hgroup {
+  padding: 1.5rem;
+}
+
+.project-card h3 {
+  margin-bottom: 0.75rem;
+  color: var(--pico-color);
+}
+
+.project-card p {
+  color: var(--pico-muted-color);
+  line-height: 1.6;
+}
+
+.project-card footer {
+  padding: 1rem 1.5rem 1.5rem;
+  margin-top: auto;
+  border-top: 1px solid var(--pico-muted-border-color);
+  background: var(--pico-card-sectioning-background-color);
+}
+
+.project-card footer details {
   margin-bottom: 1rem;
 }
 
+.project-card footer details summary {
+  cursor: pointer;
+  color: var(--pico-primary);
+  font-weight: 500;
+}
+
+.project-card footer details p {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: var(--pico-code-background-color);
+  border-radius: var(--pico-border-radius);
+  font-size: 0.9rem;
+}
+
+.project-card footer div {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.project-card footer a {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.project-card footer a:hover {
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE PROJECTS GRID
+============================================ */
+@media (max-width: 992px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    margin-bottom: 0;
+  }
+}
+
+/* ============================================
+   SKILLS SECTION
+============================================ */
+#skills {
+  padding: 4rem 0;
+}
+
+#skills .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+#skills article {
+  padding: 1.5rem;
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  background: var(--pico-card-background-color);
+  transition: transform 0.3s ease;
+}
+
+#skills article:hover {
+  transform: translateY(-5px);
+  border-color: var(--pico-primary);
+}
+
+#skills h3 {
+  color: var(--pico-primary);
+  margin-bottom: 1rem;
+}
+
+#skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+#skills li {
+  padding: 0.5rem 0;
+  color: var(--pico-muted-color);
+  border-bottom: 1px solid var(--pico-muted-border-color);
+}
+
+#skills li:last-child {
+  border-bottom: none;
+}
+
+#skills li::before {
+  content: "▸";
+  color: var(--pico-primary);
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  #skills .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   BLOG/JOURNEY SECTION
+============================================ */
+#blog {
+  padding: 4rem 0;
+  background-color: var(--pico-card-background-color);
+}
+
+#blog article {
+  padding: 2rem;
+  border-radius: var(--pico-border-radius);
+  background: var(--pico-background-color);
+  border: 1px solid var(--pico-muted-border-color);
+}
+
+#blog p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   CONNECT SECTION
+============================================ */
+#connect {
+  padding: 4rem 0;
+}
+
+#connect .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+#connect article {
+  padding: 1.5rem;
+  border: 1px solid var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  background: var(--pico-card-background-color);
+}
+
+#connect h3 {
+  color: var(--pico-primary);
+  margin-bottom: 1rem;
+}
+
+#connect a {
+  color: var(--pico-color);
+  transition: color 0.2s ease;
+}
+
+#connect a:hover {
+  color: var(--pico-primary);
+}
+
+.social-links a {
+  display: inline-block;
+  margin-right: 1.5rem;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  position: relative;
+}
+
+.social-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--pico-primary);
+  transition: width 0.3s ease;
+}
+
+.social-links a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  #connect .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   FOOTER
+============================================ */
 .neog-footer {
   text-align: center;
-  color: var(--muted, #666);
-}
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  align-items: start; /* 🔥 ensures all cards start at the same top level */
-}
-
-.projects-grid article {
-  border: 1px solid var(--pico-muted-border-color);
-  border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--pico-muted-border-color);
+  color: var(--pico-muted-color);
   background: var(--pico-card-background-color);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-  height: 100%; /* 🔥 makes all cards stretch evenly */
-  display: flex;
-  flex-direction: column; /* keeps footer at bottom */
-  justify-content: space-between;
 }
 
+.neog-footer a {
+  color: var(--pico-primary);
+  font-weight: 500;
+}
+
+.neog-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   SECTION SPACING & COMMON STYLES
+============================================ */
+section {
+  padding: 4rem 0;
+}
+
+section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--pico-primary);
+}
+
+section h3 {
+  color: var(--pico-muted-color);
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+hr {
+  margin: 2rem 0;
+  border-color: var(--pico-muted-border-color);
+  opacity: 0.5;
+}
+
+/* ============================================
+   BUTTON ENHANCEMENTS
+============================================ */
+a[role="button"] {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+a[role="button"]::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+a[role="button"]:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Secondary button hover effect */
+a[role="button"].secondary:hover {
+  background-color: var(--pico-secondary);
+  border-color: var(--pico-secondary);
+}
+
+/* Outline button hover effect */
+a[role="button"].outline:hover {
+  background-color: var(--pico-primary);
+  color: var(--pico-primary-inverse);
+}
+
+/* ============================================
+   ANIMATIONS
+============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to main sections */
+header, #projects, #skills, #blog, #connect {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Stagger animations for project cards */
+.project-card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+.project-card:nth-child(7) { animation-delay: 0.7s; }
+.project-card:nth-child(8) { animation-delay: 0.8s; }
+
+/* ============================================
+   DARK MODE ENHANCEMENTS
+============================================ */
+[data-theme="dark"] .project-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .project-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] header#about {
+  background: linear-gradient(135deg, 
+    rgba(var(--pico-primary-rgb), 0.1) 0%, 
+    var(--pico-background-color) 100%);
+}
+
+/* ============================================
+   PRINT STYLES
+============================================ */
+@media print {
+  .full-nav,
+  #theme-toggle,
+  .project-card footer div,
+  .social-links,
+  .neog-footer {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+  }
+}
