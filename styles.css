@@ -17,7 +17,7 @@ main {
 }
 
 /* ============================================
-   NAVIGATION
+   NAVIGATION - FIXED ALIGNMENT
 ============================================ */
 .full-nav {
   width: 100%;
@@ -35,14 +35,27 @@ main {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 /* Navigation links styling */
+.full-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .full-nav a {
   padding: 0.5rem 1rem;
   border-radius: var(--pico-border-radius);
   transition: all 0.2s ease;
   color: var(--pico-color);
+  text-decoration: none;
 }
 
 .full-nav a:hover {
@@ -70,6 +83,9 @@ main {
   justify-content: center;
   cursor: pointer;
   transition: transform 0.3s ease;
+  background: var(--pico-primary-background);
+  border: none;
+  font-size: 1.2rem;
 }
 
 #theme-toggle:hover {
@@ -84,6 +100,7 @@ main {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+    padding: 0 1rem;
   }
   
   .full-nav ul {
@@ -104,16 +121,21 @@ main {
 }
 
 /* ============================================
-   HEADER SECTION
+   HEADER SECTION - CENTERED ALIGNMENT
 ============================================ */
 header#about {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding: 4rem 1.5rem;
+  text-align: center;
   background: linear-gradient(135deg, #ebf0f2 0%, var(--pico-background-color) 100%);
 }
 
+header#about .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 header h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 0.5rem;
   background: linear-gradient(135deg, var(--pico-primary), var(--pico-secondary));
   -webkit-background-clip: text;
@@ -125,22 +147,82 @@ header h2 {
   color: var(--pico-muted-color);
   font-weight: normal;
   margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+header p {
+  max-width: 700px;
+  margin: 1rem auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+header hr {
+  max-width: 100px;
+  margin: 1.5rem auto;
+  border-width: 2px;
+  border-color: var(--pico-primary);
+  opacity: 0.5;
+}
+
+header .button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
 }
 
 /* ============================================
-   PROJECTS SECTION
+   PROJECTS SECTION - PERFECT GRID ALIGNMENT
 ============================================ */
 #projects {
   background-color: var(--pico-card-background-color);
   padding: 4rem 0 2rem;
 }
 
+#projects .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+#projects hgroup {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#projects hgroup h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+#projects hgroup h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--pico-primary);
+}
+
+#projects hgroup h3 {
+  color: var(--pico-muted-color);
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 .project-card {
@@ -161,36 +243,44 @@ header h2 {
   border-color: var(--pico-primary);
 }
 
-/* Project images */
+/* Project images - FIXED ASPECT RATIO */
+.project-card figure {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  background: var(--pico-code-background-color);
+}
+
 .project-card img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  border-radius: var(--pico-border-radius) var(--pico-border-radius) 0 0;
   transition: transform 0.3s ease;
 }
 
 .project-card:hover img {
-  transform: scale(1.03);
-}
-
-.project-card figure {
-  margin: 0;
-  overflow: hidden;
+  transform: scale(1.05);
 }
 
 .project-card hgroup {
   padding: 1.5rem;
+  flex: 1;
 }
 
-.project-card h3 {
+.project-card hgroup h3 {
   margin-bottom: 0.75rem;
   color: var(--pico-color);
+  font-size: 1.3rem;
 }
 
-.project-card p {
+.project-card hgroup p {
   color: var(--pico-muted-color);
   line-height: 1.6;
+  margin: 0;
 }
 
 .project-card footer {
@@ -221,6 +311,7 @@ header h2 {
 .project-card footer div {
   display: flex;
   gap: 0.75rem;
+  justify-content: space-between;
 }
 
 .project-card footer a {
@@ -228,6 +319,8 @@ header h2 {
   text-align: center;
   padding: 0.5rem;
   transition: all 0.2s ease;
+  text-decoration: none;
+  border-radius: var(--pico-border-radius);
 }
 
 .project-card footer a:hover {
@@ -237,34 +330,64 @@ header h2 {
 /* ============================================
    RESPONSIVE PROJECTS GRID
 ============================================ */
-@media (max-width: 992px) {
-  .projects-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .projects-container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    padding: 0 1rem;
   }
   
   .project-card {
-    margin-bottom: 0;
+    max-width: 100%;
   }
 }
 
 /* ============================================
-   SKILLS SECTION
+   SKILLS SECTION - EVEN COLUMN ALIGNMENT
 ============================================ */
 #skills {
   padding: 4rem 0;
 }
 
+#skills .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+#skills hgroup {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#skills hgroup h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+#skills hgroup h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--pico-primary);
+}
+
+#skills hgroup h3 {
+  color: var(--pico-muted-color);
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
 #skills .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -275,6 +398,9 @@ header h2 {
   border-radius: var(--pico-border-radius);
   background: var(--pico-card-background-color);
   transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #skills article:hover {
@@ -282,20 +408,29 @@ header h2 {
   border-color: var(--pico-primary);
 }
 
+#skills article header {
+  text-align: center;
+  padding: 0;
+  background: none;
+}
+
 #skills h3 {
   color: var(--pico-primary);
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 #skills ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 #skills li {
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
   color: var(--pico-muted-color);
   border-bottom: 1px solid var(--pico-muted-border-color);
+  text-align: center;
 }
 
 #skills li:last-child {
@@ -306,6 +441,7 @@ header h2 {
   content: "▸";
   color: var(--pico-primary);
   margin-right: 0.5rem;
+  display: inline-block;
 }
 
 @media (max-width: 768px) {
@@ -315,11 +451,47 @@ header h2 {
 }
 
 /* ============================================
-   BLOG/JOURNEY SECTION
+   BLOG/JOURNEY SECTION - CENTERED CONTENT
 ============================================ */
 #blog {
   padding: 4rem 0;
   background-color: var(--pico-card-background-color);
+}
+
+#blog .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+#blog hgroup {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#blog hgroup h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+#blog hgroup h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--pico-primary);
+}
+
+#blog hgroup h3 {
+  color: var(--pico-muted-color);
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-top: 1rem;
 }
 
 #blog article {
@@ -330,23 +502,69 @@ header h2 {
 }
 
 #blog p {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
   margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+#blog a[role="button"] {
+  display: inline-block;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 /* ============================================
-   CONNECT SECTION
+   CONNECT SECTION - BALANCED ALIGNMENT
 ============================================ */
 #connect {
-  padding: 4rem 0;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+#connect .container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+#connect hgroup {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#connect hgroup h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+#connect hgroup h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--pico-primary);
+}
+
+#connect hgroup h3 {
+  color: var(--pico-muted-color);
+  font-weight: normal;
+  font-size: 1.1rem;
+  margin-top: 1rem;
 }
 
 #connect .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #connect article {
@@ -354,6 +572,7 @@ header h2 {
   border: 1px solid var(--pico-muted-border-color);
   border-radius: var(--pico-border-radius);
   background: var(--pico-card-background-color);
+  text-align: center;
 }
 
 #connect h3 {
@@ -364,17 +583,24 @@ header h2 {
 #connect a {
   color: var(--pico-color);
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 
 #connect a:hover {
   color: var(--pico-primary);
 }
 
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
 .social-links a {
   display: inline-block;
-  margin-right: 1.5rem;
   font-weight: 500;
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
   position: relative;
 }
 
@@ -397,23 +623,34 @@ header h2 {
   #connect .grid {
     grid-template-columns: 1fr;
   }
+  
+  .social-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
 }
 
 /* ============================================
-   FOOTER
+   FOOTER - CENTERED
 ============================================ */
 .neog-footer {
   text-align: center;
-  padding: 2rem 0;
+  padding: 2rem 1.5rem;
   margin-top: 2rem;
   border-top: 1px solid var(--pico-muted-border-color);
   color: var(--pico-muted-color);
   background: var(--pico-card-background-color);
 }
 
+.neog-footer small {
+  display: block;
+}
+
 .neog-footer a {
   color: var(--pico-primary);
   font-weight: 500;
+  text-decoration: none;
 }
 
 .neog-footer a:hover {
@@ -427,34 +664,11 @@ section {
   padding: 4rem 0;
 }
 
-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  position: relative;
-  display: inline-block;
-}
-
-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 50px;
-  height: 3px;
-  background: var(--pico-primary);
-}
-
-section h3 {
-  color: var(--pico-muted-color);
-  font-weight: normal;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-
 hr {
-  margin: 2rem 0;
+  margin: 2rem auto;
   border-color: var(--pico-muted-border-color);
   opacity: 0.5;
+  max-width: 100px;
 }
 
 /* ============================================
@@ -464,6 +678,8 @@ a[role="button"] {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: inline-block;
+  text-align: center;
 }
 
 a[role="button"]::after {
@@ -521,14 +737,14 @@ header, #projects, #skills, #blog, #connect {
   animation-fill-mode: both;
 }
 
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-.project-card:nth-child(4) { animation-delay: 0.4s; }
-.project-card:nth-child(5) { animation-delay: 0.5s; }
-.project-card:nth-child(6) { animation-delay: 0.6s; }
-.project-card:nth-child(7) { animation-delay: 0.7s; }
-.project-card:nth-child(8) { animation-delay: 0.8s; }
+.project-card:nth-child(1) { animation-delay: 0.05s; }
+.project-card:nth-child(2) { animation-delay: 0.1s; }
+.project-card:nth-child(3) { animation-delay: 0.15s; }
+.project-card:nth-child(4) { animation-delay: 0.2s; }
+.project-card:nth-child(5) { animation-delay: 0.25s; }
+.project-card:nth-child(6) { animation-delay: 0.3s; }
+.project-card:nth-child(7) { animation-delay: 0.35s; }
+.project-card:nth-child(8) { animation-delay: 0.4s; }
 
 /* ============================================
    DARK MODE ENHANCEMENTS
@@ -572,4 +788,32 @@ header, #projects, #skills, #blog, #connect {
     content: " (" attr(href) ")";
     font-size: 10pt;
   }
+}
+
+/* ============================================
+   ADDITIONAL FIXES FOR CONSISTENCY
+============================================ */
+.container {
+  width: 100%;
+}
+
+/* Fix for PicoCSS default styles overriding */
+article figure {
+  margin: 0;
+}
+
+/* Ensure consistent button styling */
+button {
+  cursor: pointer;
+}
+
+/* Fix for image loading */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
