@@ -165,6 +165,14 @@ header hr {
   opacity: 0.5;
 }
 
+header .button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
 /* ============================================
    PROJECTS SECTION - PERFECT GRID ALIGNMENT
 ============================================ */
@@ -215,10 +223,6 @@ header hr {
   gap: 2rem;
   margin-top: 3rem;
   margin-bottom: 2rem;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1.5rem;
 }
 
 .project-card {
@@ -339,11 +343,10 @@ header hr {
 }
 
 /* ============================================
-   SKILLS/TECHNOLOGY SECTION - IMPROVED DESIGN
+   SKILLS SECTION - EVEN COLUMN ALIGNMENT
 ============================================ */
 #skills {
   padding: 4rem 0;
-  background: var(--pico-background-color);
 }
 
 #skills .container {
@@ -358,200 +361,92 @@ header hr {
 }
 
 #skills hgroup h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 0.5rem;
   position: relative;
   display: inline-block;
-  background: linear-gradient(135deg, var(--pico-primary), var(--pico-secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
 #skills hgroup h2::after {
   content: '';
   position: absolute;
-  bottom: -12px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 50px;
   height: 3px;
-  background: linear-gradient(90deg, var(--pico-primary), var(--pico-secondary));
-  border-radius: 2px;
+  background: var(--pico-primary);
 }
 
 #skills hgroup h3 {
   color: var(--pico-muted-color);
   font-weight: normal;
   font-size: 1.1rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
-/* Skills Grid - Modern 3 Column Layout */
-.skills-grid {
+#skills .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
-/* Skill Cards - Modern Design */
-.skill-card {
-  background: var(--pico-card-background-color);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  transition: all 0.3s ease;
+#skills article {
+  padding: 1.5rem;
   border: 1px solid var(--pico-muted-border-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.skill-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--pico-primary), var(--pico-secondary));
-  transform: scaleX(0);
+  border-radius: var(--pico-border-radius);
+  background: var(--pico-card-background-color);
   transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.skill-card:hover::before {
-  transform: scaleX(1);
-}
-
-.skill-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+#skills article:hover {
+  transform: translateY(-5px);
   border-color: var(--pico-primary);
 }
 
-/* Skill Icon Header */
-.skill-icon-header {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: inline-block;
-  animation: float 3s ease-in-out infinite;
+#skills article header {
+  text-align: center;
+  padding: 0;
+  background: none;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-/* Skill Card Headings */
-.skill-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+#skills h3 {
   color: var(--pico-primary);
-  font-weight: 600;
-  position: relative;
-  display: inline-block;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-.skill-card h3::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 2px;
-  background: var(--pico-primary);
-  border-radius: 1px;
-}
-
-/* Skill Items List */
-.skill-items {
+#skills ul {
   list-style: none;
   padding: 0;
-  margin: 1.5rem 0 0 0;
+  margin: 0;
 }
 
-.skill-items li {
-  padding: 0.75rem 0;
-  color: var(--pico-color);
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+#skills li {
+  padding: 0.6rem 0;
+  color: var(--pico-muted-color);
   border-bottom: 1px solid var(--pico-muted-border-color);
-  transition: all 0.2s ease;
+  text-align: center;
 }
 
-.skill-items li:last-child {
+#skills li:last-child {
   border-bottom: none;
 }
 
-.skill-items li:hover {
-  transform: translateX(5px);
+#skills li::before {
+  content: "▸";
   color: var(--pico-primary);
-  padding-left: 0.5rem;
-}
-
-.skill-items li span {
-  font-size: 1.2rem;
-  min-width: 2rem;
-}
-
-/* Responsive Design for Skills Section */
-@media (max-width: 992px) {
-  .skills-grid {
-    gap: 1.5rem;
-  }
-  
-  .skill-card {
-    padding: 1.5rem 1rem;
-  }
-  
-  .skill-card h3 {
-    font-size: 1.3rem;
-  }
-  
-  .skill-icon-header {
-    font-size: 2.5rem;
-  }
+  margin-right: 0.5rem;
+  display: inline-block;
 }
 
 @media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
-  .skill-items li {
-    padding: 0.6rem 0;
-    font-size: 0.95rem;
-  }
-  
-  .skill-items li span {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .skills-grid {
+  #skills .grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .skill-card {
-    max-width: 100%;
-    padding: 1.5rem;
-  }
-  
-  .skill-card h3 {
-    font-size: 1.2rem;
-  }
-  
-  .skill-icon-header {
-    font-size: 2rem;
   }
 }
 
@@ -623,14 +518,13 @@ header hr {
    CONNECT SECTION - BALANCED ALIGNMENT
 ============================================ */
 #connect {
-  padding: 4rem 0;
-  background: var(--pico-background-color);
+  padding: 4rem 1.5rem;
+  text-align: center;
 }
 
 #connect .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
 }
 
 #connect hgroup {
@@ -639,83 +533,60 @@ header hr {
 }
 
 #connect hgroup h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 0.5rem;
   position: relative;
   display: inline-block;
-  background: linear-gradient(135deg, var(--pico-primary), var(--pico-secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 
 #connect hgroup h2::after {
   content: '';
   position: absolute;
-  bottom: -12px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 50px;
   height: 3px;
-  background: linear-gradient(90deg, var(--pico-primary), var(--pico-secondary));
-  border-radius: 2px;
+  background: var(--pico-primary);
 }
 
 #connect hgroup h3 {
   color: var(--pico-muted-color);
   font-weight: normal;
   font-size: 1.1rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
-.connect-grid {
+#connect .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.connect-card {
-  padding: 2rem;
+#connect article {
+  padding: 1.5rem;
   border: 1px solid var(--pico-muted-border-color);
-  border-radius: 1rem;
+  border-radius: var(--pico-border-radius);
   background: var(--pico-card-background-color);
   text-align: center;
-  transition: all 0.3s ease;
 }
 
-.connect-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--pico-primary);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.connect-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.connect-card h3 {
+#connect h3 {
   color: var(--pico-primary);
   margin-bottom: 1rem;
-  font-size: 1.3rem;
 }
 
-.connect-card p {
-  margin: 0;
-}
-
-.connect-card a {
+#connect a {
   color: var(--pico-color);
   transition: color 0.2s ease;
   text-decoration: none;
-  word-break: break-all;
 }
 
-.connect-card a:hover {
+#connect a:hover {
   color: var(--pico-primary);
 }
 
@@ -729,9 +600,8 @@ header hr {
 .social-links a {
   display: inline-block;
   font-weight: 500;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   position: relative;
-  font-size: 1.1rem;
 }
 
 .social-links a::after {
@@ -750,19 +620,14 @@ header hr {
 }
 
 @media (max-width: 576px) {
-  .connect-grid {
+  #connect .grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
   }
   
   .social-links {
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-  }
-  
-  .connect-card {
-    padding: 1.5rem;
   }
 }
 
@@ -776,11 +641,6 @@ header hr {
   border-top: 1px solid var(--pico-muted-border-color);
   color: var(--pico-muted-color);
   background: var(--pico-card-background-color);
-}
-
-.neog-footer .container {
-  max-width: 1280px;
-  margin: 0 auto;
 }
 
 .neog-footer small {
@@ -858,7 +718,7 @@ a[role="button"].outline:hover {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -886,25 +746,6 @@ header, #projects, #skills, #blog, #connect {
 .project-card:nth-child(7) { animation-delay: 0.35s; }
 .project-card:nth-child(8) { animation-delay: 0.4s; }
 
-/* Stagger animations for skill cards */
-.skill-card {
-  animation: fadeInUp 0.6s ease-out;
-  animation-fill-mode: both;
-}
-
-.skill-card:nth-child(1) { animation-delay: 0.1s; }
-.skill-card:nth-child(2) { animation-delay: 0.2s; }
-.skill-card:nth-child(3) { animation-delay: 0.3s; }
-
-/* Stagger animations for connect cards */
-.connect-card {
-  animation: fadeInUp 0.6s ease-out;
-  animation-fill-mode: both;
-}
-
-.connect-card:nth-child(1) { animation-delay: 0.1s; }
-.connect-card:nth-child(2) { animation-delay: 0.2s; }
-
 /* ============================================
    DARK MODE ENHANCEMENTS
 ============================================ */
@@ -920,22 +761,6 @@ header, #projects, #skills, #blog, #connect {
   background: linear-gradient(135deg, 
     rgba(var(--pico-primary-rgb), 0.1) 0%, 
     var(--pico-background-color) 100%);
-}
-
-[data-theme="dark"] .skill-card {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme="dark"] .skill-card:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .skill-items li {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="dark"] .connect-card {
-  background: var(--pico-card-background-color);
 }
 
 /* ============================================
