@@ -429,8 +429,7 @@ header .button-group {
 #skills li {
   padding: 0.6rem 0;
   color: var(--pico-muted-color);
-  border-bottom: 1px solid var(--pico-muted-border-color);
-  text-align: center;
+  border-bottom: 1px solid var(--pico-muted-border-color); 
 }
 
 #skills li:last-child {
@@ -438,7 +437,6 @@ header .button-group {
 }
 
 #skills li::before {
-  content: "▸";
   color: var(--pico-primary);
   margin-right: 0.5rem;
   display: inline-block;
